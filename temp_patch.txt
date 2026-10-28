@@ -1,0 +1,24 @@
+﻿  return (
+    <div className="page">
+      <Breadcrumb paths={[{ name: 'Home', url: '/' }, { name: 'Services', url: '/services' }, { name: 'Book Slot' }]} />
+
+      {tempToken && (
+        <div className="card" style={{ marginBottom: '16px', border: '2px solid #22c55e', background: '#f0fdf4' }}>
+          <div className="card-body" style={{ padding: '14px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+              <Ticket size={18} color="#16a34a" />
+              <strong style={{ color: '#166534' }}>Temporary Token</strong>
+            </div>
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
+              <div>
+                <div style={{ fontSize: '10px', color: '#15803d', fontWeight: 600 }}>TOKEN NO.</div>
+                <div style={{ fontSize: '32px', fontWeight: 800, fontFamily: 'monospace', letterSpacing: '2px', color: '#14532d' }}>{tempToken.tokenNumber}</div>
+                <div style={{ fontSize: '12px', marginTop: '2px' }}>{tempToken.service} • {tempToken.date} • {tempToken.time} • {tempToken.counterName}</div>
+              </div>
+              <div style={{ background: 'white', padding: '6px', borderRadius: '6px' }}>
+                <QRCodeSVG value={tempToken.qrString} size={100} />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
